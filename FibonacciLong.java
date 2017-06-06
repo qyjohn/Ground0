@@ -1,23 +1,23 @@
 import java.math.BigInteger;
 
-public class Fibonacci
+public class FibonacciLong
 {
 	int count;
-	BigInteger[] values;
+	long[] values;
 
-	public Fibonacci(int count)
+	public FibonacciLong(int count)
 	{
 		this.count = count;
-		values = new BigInteger[count];
-		values[0] = new BigInteger("1");
-		values[1] = new BigInteger("1");
+		values = new long[count];
+		values[0] = 1;
+		values[1] = 1;
 	}
 
 	void generate()
 	{
 		for (int i = 2; i < count; i++)
 		{
-			values[i] = values[i-1].add(values[i-2]);
+			values[i] = values[i-1] + values[i-2];
 		}
 	}
 
@@ -33,7 +33,7 @@ public class Fibonacci
 	{
 		try
 		{
-			Fibonacci f = new Fibonacci(Integer.parseInt(args[0]));
+			FibonacciLong f = new FibonacciLong(Integer.parseInt(args[0]));
 			f.generate();
 			f.show();
 		} catch (Exception e)
